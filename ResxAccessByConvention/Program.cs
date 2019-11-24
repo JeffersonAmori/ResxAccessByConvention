@@ -6,7 +6,17 @@ namespace ResxAccessByConvention
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            try
+            {
+                throw new CustomErro(() => CustomErro.ErrorTwo);
+
+            }
+            catch(CustomErro error)
+            {
+                Console.WriteLine($"Code: {error.ErrorCode} | Message: {error.ErrorMessage}");
+                Console.ReadLine();
+            }
+
         }
     }
 }
